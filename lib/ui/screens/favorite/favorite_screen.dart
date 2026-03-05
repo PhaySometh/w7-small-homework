@@ -10,7 +10,6 @@ import '../../theme/theme.dart';
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
 
- 
   @override
   Widget build(BuildContext context) {
     // 1- Read the globbal song repository
@@ -29,17 +28,14 @@ class FavoriteScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 16),
-          Text(
-            "Favorite",
-            style: AppTextStyles.heading,
-          ),
+          Text("Favorite", style: AppTextStyles.heading),
 
           SizedBox(height: 50),
 
           Expanded(
             child: ListView.builder(
               itemCount: songs.length,
-              itemBuilder: (context, index) => SongTile(
+              itemBuilder: (context, index) => SongTileFavorite(
                 song: songs[index],
                 isPlaying: playerState.currentSong == songs[index],
               ),
@@ -51,8 +47,8 @@ class FavoriteScreen extends StatelessWidget {
   }
 }
 
-class SongTile extends StatelessWidget {
-  const SongTile({
+class SongTileFavorite extends StatelessWidget {
+  const SongTileFavorite({
     super.key,
     required this.song,
     required this.isPlaying,
@@ -60,7 +56,6 @@ class SongTile extends StatelessWidget {
 
   final Song song;
   final bool isPlaying;
-
 
   @override
   Widget build(BuildContext context) {
